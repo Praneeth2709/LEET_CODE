@@ -1,14 +1,10 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        # Check if nums is valid
         if not isinstance(nums, list):
             return -1
-            
         left, right = 0, len(nums) - 1
-        
         while left <= right:
             mid = left + (right - left) // 2
-            
             if nums[mid] == target:
                 return mid
             elif nums[mid] < target:
