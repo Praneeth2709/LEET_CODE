@@ -1,12 +1,11 @@
 from collections import Counter
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        t = Counter(magazine)
+        counts = {}
+        for char in magazine:
+            counts[char] = counts.get(char, 0) + 1 
         for char in ransomNote:
-            if t[char] > 0:
-                t[char] -= 1
-            else:
+            if counts.get(char, 0) == 0:
                 return False
+            counts[char] -= 1
         return True
-
-        
